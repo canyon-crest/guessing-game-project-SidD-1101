@@ -7,6 +7,10 @@
   <body>
     <p id="date"></p>
 
+  <p id="roundTime">Round Time: 0.000s</p>
+  <input id="nameInput" type="text" placeholder="Enter your name">
+  <button id="setNameBtn">Set Name</button>
+
     <h3>Level</h3>
     <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
     <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
@@ -17,11 +21,15 @@
     <h3 id="msg">Select a Level</h3>
     <input type="text" id="guess" disabled>
     <button id="guessBtn" disabled>Guess</button>
+  <button id="hintBtn" disabled>Hint</button>
     <button id="giveUpBtn" disabled>Give Up</button>
     
     <h3>Stats</h3>
     <p id="wins">Total wins: 0</p>
     <p id="avgScore">Average Score: </p>
+  <p id="fastest">Fastest Time: N/A</p>
+  <p id="totalTime">Total Time: 0.000s</p>
+  <p id="avgTime">Average Time: 0.000s</p>
 
     <h3>Leaderboard</h3>
     <ol>
