@@ -1,41 +1,68 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <title>JavaScript Number Guessing Game</title>
-    <script src="script.js" defer></script>
-  </head>
-  <body>
-    <p id="date"></p>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Guessing Game</title>
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header>
+    <h1>Guessing Game</h1>
+    <div id="date" aria-live="polite">Loading date...</div>
+  </header>
 
-  <p id="roundTime">Round Time: 0.000s</p>
-  <input id="nameInput" type="text" placeholder="Enter your name">
-  <button id="setNameBtn">Set Name</button>
+  <section id="game-area">
+    <div id="controls">
+      <div>
+        <input id="nameInput" type="text" placeholder="Enter your name" />
+        <button id="setNameBtn">Set Name</button>
+      </div>
 
-    <h3>Level</h3>
-    <input type="radio" name="level" id="e" value="3" checked><label for="e">Easy</label>
-    <input type="radio" name="level" id="m" value="10"><label for="m">Medium</label>
-    <input type="radio" name="level" id="h" value="100"><label for="h">Hard</label>
+      <div>
+        <h4>Level</h4>
+        <label><input type="radio" name="level" value="3" checked> Easy (1-3)</label><br>
+        <label><input type="radio" name="level" value="10"> Medium (1-10)</label><br>
+        <label><input type="radio" name="level" value="100"> Hard (1-100)</label><br>
+      </div>
 
-    <button id="playBtn">Play</button>
+      <div>
+        <button id="playBtn" disabled>Play</button>
+        <button id="guessBtn" disabled>Guess</button>
+        <button id="hintBtn" disabled>Hint</button>
+        <button id="giveUpBtn" disabled>Give Up</button>
+      </div>
 
-    <h3 id="msg">Select a Level</h3>
-    <input type="text" id="guess" disabled>
-    <button id="guessBtn" disabled>Guess</button>
-  <button id="hintBtn" disabled>Hint</button>
-    <button id="giveUpBtn" disabled>Give Up</button>
-    
-    <h3>Stats</h3>
-    <p id="wins">Total wins: 0</p>
-    <p id="avgScore">Average Score: </p>
-  <p id="fastest">Fastest Time: N/A</p>
-  <p id="totalTime">Total Time: 0.000s</p>
-  <p id="avgTime">Average Time: 0.000s</p>
+      <div>
+        <input id="guess" type="number" disabled min="1" placeholder="Your guess" />
+      </div>
 
-    <h3>Leaderboard</h3>
-    <ol>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-      <li name="leaderboard">100</li>
-    </ol>
-  </body>
+      <p id="msg" aria-live="polite">Please set your name to start.</p>
+      <p>Shortcuts: Enter = Guess, H = Hint, G = Give Up</p>
+    </div>
+
+    <div id="info">
+      <div id="thermometer" title="Heat indicator" style="width:260px;height:18px;border:1px solid #ccc;background:#eee;overflow:hidden;">
+        <div id="thermometer-fill" style="height:100%;width:0%;background:linear-gradient(90deg,#00f,#f00);transition:width .18s;"></div>
+      </div>
+
+      <p id="roundTime">Round Time: 0.000s</p>
+
+      <section id="stats">
+        <h4>Stats</h4>
+        <p id="wins">Games won: 0</p>
+        <p id="avgScore">Average Score: 0.00</p>
+        <p id="fastest">Fastest Time: N/A</p>
+        <p id="totalTime">Total Time: 0.000s</p>
+        <p id="avgTime">Average Time per game: 0.000s</p>
+        <p id="streak">Win Streak: 0</p>
+      </section>
+
+      <section id="leader">
+        <h4>Leaderboard</h4>
+        <ul id="leaderboard"></ul>
+      </section>
+    </div>
+  </section>
+</body>
 </html>
